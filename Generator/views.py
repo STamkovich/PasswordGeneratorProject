@@ -11,7 +11,7 @@ def password_generator(request):
 def get_password(request):
     lowercase_letters = list('abcdefghijklmnopqrstuvwxyz')
     uppercase_letters = list('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
-    special = list('!#$%&*+-=?@^_')
+    special = list('!#$%&*?@_')
     digits = list('0123456789')
     if request.GET.get('uppercase_letters'):
         lowercase_letters.extend(uppercase_letters)
@@ -20,14 +20,14 @@ def get_password(request):
     if request.GET.get('digits'):
         lowercase_letters.extend(digits)
 
-
-    length = int(request.GET.get('length'))
+    length = int(request.GET.get('length', 22))
     thepassword = ''
     for i in range(length):
         thepassword += random.choice(lowercase_letters)
 
     return render(request, 'Generator/password.html', {'password': thepassword,
                                                        })
+
 
 def info(request):
     return render(request, 'Generator/info.html')

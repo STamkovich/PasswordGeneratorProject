@@ -3,31 +3,33 @@
 <title>{% block Title %} Генератор паролей {% endblock %}</title>
 
 {% block content %}
-    <h1>Добро пожаловать в генератор паролей</h1>
-    <form action="{% url 'password' %}">
-        <label>
-            <select name="length">
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12" selected="selected">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-            </select>
-            <br>
-            <input type="checkbox" name="uppercase_letters">Верхний регистр
-            <br>
-            <input type="checkbox" name="digits">Добавить цифры
-            <br>
-            <input type="checkbox" name="special">Добавить специальные символы
-            <br>
-            <input type="submit" value="Сгенерировать пароль">
-            <a href="{% url 'info' %}"> Информация о сайте</a>
-        </label>
-    </form>
+    <div class="container text-center">
+        <h1>Добро пожаловать в генератор паролей</h1>
+        <form action="{% url 'password' %}">
+            <label>
+                <select name="length">
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12" selected="selected">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                </select> Задайте длину пароля
+                <br>
+                <input type="checkbox" name="uppercase_letters">Верхний регистр
+                <br>
+                <input type="checkbox" name="digits">Добавить цифры
+                <br>
+                <input type="checkbox" name="special">Добавить специальные символы
+                <br>
+                <input type="submit" value="Сгенерировать пароль" class="btn btn-primary">
+                <a href="{% url 'info' %}"> Информация о сайте</a>
+            </label>
+        </form>
+    </div>
 {% endblock %}
 
